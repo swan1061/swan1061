@@ -1,0 +1,295 @@
+<!doctype html>
+
+<html>
+
+<head>
+<script language="JavaScript">
+
+          <!--
+    
+              
+              
+              
+              
+          function namosw_init_clock()
+ {
+ var type, i, top, obj, clocks;
+ clocks = new Array();
+ for (i = 0, top = 0; i < namosw_init_clock.arguments.length; i += 2) {
+ obj = eval('document.'+namosw_init_clock.arguments[i]);
+ if (obj == null) continue;
+ if ((type = namosw_init_clock.arguments[i+1]) < 1 && 11 < type) continue;
+ clocks[top++] = obj;
+ clocks[top++] = type;
+ }
+ clocks.months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July',
+ 'August', 'September', 'October', 'November', 'December');
+ clocks.days = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday',
+ 'Thursday', 'Friday', 'Saturday');
+ clocks.k_days = new Array('일', '월', '화', '수', '목', '금', '토');
+clocks.ampm_str = new Array('AM', 'PM');
+ clocks.k_ampm_str = new Array('am', 'pm');
+
+if (top > 0) {
+ document.namosw_clocks = clocks;
+ namosw_clock();
+ }
+ }
+
+ function namosw_clock()
+ {
+ var i, type, clocks, next_call, str, hour, ampm, now, year2, year4;
+ clocks = document.namosw_clocks;
+ if (clocks == null) return;
+ next_call = false;
+ for (i = 0; i < clocks.length; i += 2) {
+ obj = clocks[i];
+ type = clocks[i+1];
+ now = new Date();
+ year2 = now.getYear();
+ year4 = year2;
+ if (year2 < 1000) year4 = 1900 + year2;
+ if (year2 >= 100) year2 = year4;
+
+ if (type == 1 || type == 2) {
+ obj.value = clocks.months[now.getMonth()] + ' ' + now.getDate() + ', ' + year4;
+ if (type == 2) 
+ obj.value = clocks.days[now.getDay()] + ', ' + obj.value;
+ } else if (type == 3 || type == 4) {
+ obj.value = year2 + '/' + (now.getMonth()+1) + '/' + now.getDate();
+ } else if (type == 5 || type == 6) {
+ obj.value = now.getDate() + '/' + (now.getMonth()+1) + '/' + year2;
+ } else if (type == 8 || type == 9 || type == 10 || type == 11) {
+ obj.value = year4 + '-' + (now.getMonth()+1) + '-' + now.getDate() + '';
+ if (type == 9)
+ obj.value += ' ' + clocks.k_days[now.getDay()] + '요일';
+ }
+if (type == 4 || type == 6 || type == 7 || type == 10 || type == 11) {
+ hour = now.getHours();
+ ampm = 0;
+ if (hour >= 12) {
+ if (hour > 12) hour -= 12;
+ ampm = 1;
+ }
+ hour=hour+""
+ if (hour.length == 1) hour = 0 + hour;
+ minute = now.getMinutes() + "";
+ if (minute.length == 1) minute = 0 + minute;
+ second = now.getSeconds() + "";
+ if (second.length == 1) second = 0 + second;
+ if (type == 10 || type == 11) {
+ str = clocks.k_ampm_str[ampm] +' '+ hour+':'+ minute +':';
+ if (type == 11) str += '' + second;
+ } else {
+ str = hour +':'+ ((now.getMinutes() < 10) ? '0'+now.getMinutes():now.getMinutes()) +':'+ ((now.getSeconds() < 10) ? '0'+now.getSeconds():now.getSeconds()) +' '+ clocks.ampm_str[ampm];
+ }
+ if (type == 7) obj.value = str;
+ else obj.value += ' ' + str;
+ }
+ if (type == 4 || type == 6 || type == 7 || type == 10 || type == 11)
+ next_call = true;
+ }
+ if (next_call)
+ window.setTimeout("namosw_clock();", 1000);
+ }
+    
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+            
+   
+   // -->
+</script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red" OnLoad="namosw_init_clock('form1.textclock1', 11)">
+<form name="form1">
+       <input type="text" name="textclock1" size="30" style=" text-align:center; border : 0; width=150;">
+   </form>
+</body>
+
+</html>
+
+
+
+<html>
+<head>
+
+	<title>Local</title>
+	<meta charset="utf-8">
+</head>
+<body>
+    
+
+
+ 
+    
+    <center>
+        
+         <h1>
+         KOSPI / KOSDAQ
+    </h1>
+         
+     <script>
+         
+
+         
+         
+         
+        setTimeout("history.go(0);",10000);
+         
+         
+    </script>
+    
+    
+   
+    
+    
+    
+    
+    
+                
+    <h4>
+    <font color="#1193f0"> 기관 </font>  /  <font color="#f48416"> 외국인 </font>   /  <font color="#9e5ccd"> 개인
+        </font> 
+        </h4> 
+        
+            
+            <br>
+            
+        <img src="https://ssl.pstatic.net/imgfinance/chart/sise/siseMainKOSPI.png?sid=1550903335515" width="700" height="289">
+        <img src="https://ssl.pstatic.net/imgfinance/chart/sise/siseMainKOSDAQ.png?sid=1550903335515" width="700" height="289">
+        <br>
+          <br>  
+        
+        
+        
+        
+       
+        <h1>
+        
+        삼진엘앤디 / 일성건설
+          <br>
+ <img width="700" height="289" id="img_chart_area" onerror="this.src='https://ssl.pstatic.net/imgstock/chart3/world2008/error_700x289.png'" alt="이미지 차트" src="https://ssl.pstatic.net/imgfinance/chart/item/area/day/054090.png?sidcode=1557955315741">     
+        
+        <img width="700" height="289" id="img_chart_area" onerror="this.src='https://ssl.pstatic.net/imgstock/chart3/world2008/error_700x289.png'" alt="이미지 차트" src="https://ssl.pstatic.net/imgfinance/chart/item/area/day/013360.png?sidcode=1561944259144">
+        
+        
+        
+        
+       
+        <br>
+            <br>  
+        크루셜텍 / 두산중공업 
+              <br>
+       
+                
+        <img width="700" height="289" id="img_chart_area" onerror="this.src='https://ssl.pstatic.net/imgstock/chart3/world2008/error_700x289.png'" alt="이미지 차트" src="https://ssl.pstatic.net/imgfinance/chart/item/area/day/114120.png?sidcode=1551054505363">
+        
+        <img width="700" height="289" id="img_chart_area" onerror="this.src='https://ssl.pstatic.net/imgstock/chart3/world2008/error_700x289.png'" alt="이미지 차트" src="https://ssl.pstatic.net/imgfinance/chart/item/area/day/034020.png?sidcode=1551055832149">
+             
+        <br>
+        <br>
+    
+         세종텔레콤 / 코오롱머티리얼    
+              <br>
+
+        <img width="700" height="289" id="img_chart_area" onerror="this.src='https://ssl.pstatic.net/imgstock/chart3/world2008/error_700x289.png'" alt="이미지 차트" src="https://ssl.pstatic.net/imgfinance/chart/item/area/day/036630.png?sidcode=1551067668883">
+       
+        <img width="700" height="289" id="img_chart_area" onerror="this.src='https://ssl.pstatic.net/imgstock/chart3/world2008/error_700x289.png'" alt="이미지 차트" src="https://ssl.pstatic.net/imgfinance/chart/item/area/day/144620.png?sidcode=1551055753929">
+        <br>
+            <br>
+       
+          바이오로그디바이스 / 일신석재 
+          <br>  
+       
+        
+        <img width="700" height="289" id="img_chart_area" onerror="this.src='https://ssl.pstatic.net/imgstock/chart3/world2008/error_700x289.png'" alt="이미지 차트" src="https://ssl.pstatic.net/imgfinance/chart/item/area/day/208710.png?sidcode=1551055783082">
+        
+        <img width="700" height="289" id="img_chart_area" onerror="this.src='https://ssl.pstatic.net/imgstock/chart3/world2008/error_700x289.png'" alt="이미지 차트" src="https://ssl.pstatic.net/imgfinance/chart/item/area/day/007110.png?sidcode=1551055807304">
+    
+    <br> <br> 
+    라온시큐어 / 해성옵틱스
+    <br>
+            
+        <img width="700" height="289" id="img_chart_area" onerror="this.src='https://ssl.pstatic.net/imgstock/chart3/world2008/error_700x289.png'" alt="이미지 차트" src="https://ssl.pstatic.net/imgfinance/chart/item/area/day/042510.png?sidcode=1551995641518">
+            
+        <img width="700" height="289" id="img_chart_area" onerror="this.src='https://ssl.pstatic.net/imgstock/chart3/world2008/error_700x289.png'" alt="이미지 차트" src="https://ssl.pstatic.net/imgfinance/chart/item/area/day/076610.png?sidcode=1551995791598">
+            
+        <br>
+            <br>
+        
+           동방선기 / 현대상선 
+            <br>
+            
+        <img width="700" height="289" id="img_chart_area" onerror="this.src='https://ssl.pstatic.net/imgstock/chart3/world2008/error_700x289.png'" alt="이미지 차트" src="https://ssl.pstatic.net/imgfinance/chart/item/area/day/099410.png?sidcode=1551997008602">
+            
+        <img width="700" height="289" id="img_chart_area" onerror="this.src='https://ssl.pstatic.net/imgstock/chart3/world2008/error_700x289.png'" alt="이미지 차트" src="https://ssl.pstatic.net/imgfinance/chart/item/area/day/011200.png?sidcode=1551996064567">
+    <br><br>
+    서울옥션 / 삼성중공업
+    <br>
+            
+        <img width="700" height="289" id="img_chart_area" onerror="this.src='https://ssl.pstatic.net/imgstock/chart3/world2008/error_700x289.png'" alt="이미지 차트" src="https://ssl.pstatic.net/imgfinance/chart/item/area/day/063170.png?sidcode=1551996128094">
+            
+        <img width="700" height="289" id="img_chart_area" onerror="this.src='https://ssl.pstatic.net/imgstock/chart3/world2008/error_700x289.png'" alt="이미지 차트" src="https://ssl.pstatic.net/imgfinance/chart/item/area/day/010140.png?sidcode=1551996158741">  
+         
+           
+          <br>  <br>
+    대한광통신 / 에스맥
+        <br>
+<img width="700" height="289" id="img_chart_area" onerror="this.src='https://ssl.pstatic.net/imgstock/chart3/world2008/error_700x289.png'" alt="이미지 차트" src="https://ssl.pstatic.net/imgfinance/chart/item/area/day/010170.png?sidcode=1554420030712">
+
+
+<img width="700" height="289" id="img_chart_area" onerror="this.src='https://ssl.pstatic.net/imgstock/chart3/world2008/error_700x289.png'" alt="이미지 차트" src="https://ssl.pstatic.net/imgfinance/chart/item/area/day/097780.png?sidcode=1554420112746">
+
+        
+        <br>   <br>
+    이엠코리아  / 두산퓨어셀
+        <br>
+<img width="700" height="289" id="img_chart_area" onerror="this.src='https://ssl.pstatic.net/imgstock/chart3/world2008/error_700x289.png'" alt="이미지 차트" src="https://ssl.pstatic.net/imgfinance/chart/item/area/day/095190.png?sidcode=1580697733564">
+        
+            
+        
+<img width="700" height="289" id="img_chart_area" onerror="this.src='https://ssl.pstatic.net/imgstock/chart3/world2008/error_700x289.png'" alt="이미지 차트" src="https://ssl.pstatic.net/imgfinance/chart/item/area/day/336260.png?sidcode=1580705310520">
+        
+        <br>
+
+
+
+
+  <script>settimeout("history.go(0);",1000);</script>
+    
+     
+    
+    
+   
+    
+    
+        </h1></center>
+        
+        
+        
+    <br>
+  
+    
+    
+
+  
+    
+    
+</body>
+</html>
